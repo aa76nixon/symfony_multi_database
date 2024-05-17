@@ -1,0 +1,59 @@
+# config/packages/doctrine.yaml
+doctrine:
+    dbal:
+        connections:
+            default:
+                url: '%env(resolve:DATABASE_URL_COMMON)%'
+                driver: 'pdo_mysql'
+                charset: utf8mb4
+                default_table_options:
+                    charset: utf8mb4
+                    collation: utf8mb4_unicode_ci
+                mapping_types:
+                    enum: string
+            term_2019:
+                url: '%env(resolve:DATABASE_URL_TERM_2019)%'
+                driver: 'pdo_mysql'
+                charset: utf8mb4
+                default_table_options:
+                    charset: utf8mb4
+                    collation: utf8mb4_unicode_ci
+                mapping_types:
+                    enum: string
+            term_2024:
+                url: '%env(resolve:DATABASE_URL_TERM_2024)%'
+                driver: 'pdo_mysql'
+                charset: utf8mb4
+                default_table_options:
+                    charset: utf8mb4
+                    collation: utf8mb4_unicode_ci
+                mapping_types:
+                    enum: string
+        default_connection: default
+    orm:
+        default_entity_manager: default
+        entity_managers:
+            default:
+                connection: default
+                mappings:
+                    Common:
+                        is_bundle: false
+                        dir: '%kernel.project_dir%/src/Entity/Common'
+                        prefix: 'App\Entity\Common'
+                        alias: Common
+            term_2019:
+                connection: term_2019
+                mappings:
+                    Term:
+                        is_bundle: false
+                        dir: '%kernel.project_dir%/src/Entity/Term'
+                        prefix: 'App\Entity\Term'
+                        alias: Term
+            term_2024:
+                connection: term_2024
+                mappings:
+                    Term:
+                        is_bundle: false
+                        dir: '%kernel.project_dir%/src/Entity/Term'
+                        prefix: 'App\Entity\Term'
+                        alias: Term

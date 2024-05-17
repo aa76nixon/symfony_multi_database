@@ -1,0 +1,4 @@
+doctrine_migrations:
+  migrations_paths:
+    'DoctrineMigrations\Common': '%kernel.project_dir%/migrations/common'
+    'DoctrineMigrations\Term': '%kernel.project_dir%/migrations/term'
